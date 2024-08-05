@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kumbh+Sans:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+    <div class="desktopview">
+    <nav>
+        <img id="logo" src="images/logo.svg" alt="">
+        <ul>
+            <li><button>Collections</button></li>
+            <li><button>Men</button></li>
+            <li><button>Women</button></li>
+            <li><button>About</button></li>
+            <li><button>Contact</button></li>
+            <li><button id="cartbtn" onclick="cartWindow()"><img src="images/icon-cart.svg" alt=""></button></li>
+        </ul>
+        <img id="avatar" src="images/image-avatar.png" alt="">
+        <hr>
+    </nav>
+    <div id="cartwindow">
+        <h3>Cart</h3>
+        <hr>
+        <div id="cart_product">Your cart is empty</div>
+    </div>
+    
+    <main>
+        <div class="gallery">
+            <img id="mainpic1" onclick="openGallery()" src="images/image-product-1.jpg" alt="">
+            <img id="mainpic2" onclick="openGallery()" src="images/image-product-2.jpg" alt="">
+            <img id="mainpic3" onclick="openGallery()" src="images/image-product-3.jpg" alt="">
+            <img id="mainpic4" onclick="openGallery()" src="images/image-product-4.jpg" alt="">
+            <div class="imgselect">
+                <img id="thumb1" onclick="showPic1()" src="images/image-product-1-thumbnail.jpg" alt="">
+                <img id="thumb2" onclick="showPic2()" src="images/image-product-2-thumbnail.jpg" alt="">
+                <img id="thumb3" onclick="showPic3()" src="images/image-product-3-thumbnail.jpg" alt="">
+                <img id="thumb4" onclick="showPic4()" src="images/image-product-4-thumbnail.jpg" alt="">
+            </div>
+        </div>
+        <div id="gallery">
+        <div id="lightbox_opacity"></div>
+        <div class="carousel">
+            <button id="closebtn" onclick="closeGallery()"><img src="images/icon-close.svg" alt=""></button>
+            <div class="mainpic">
+                <img id="gmainpic1" src="images/image-product-1.jpg" alt="">
+                <img id="gmainpic2" src="images/image-product-2.jpg" alt="">
+                <img id="gmainpic3" src="images/image-product-3.jpg" alt="">
+                <img id="gmainpic4" src="images/image-product-4.jpg" alt="">
+            </div>
+            <button class="arrow arrow_left" onclick="showPrev()" id="arrow_left">
+                <img src="images/icon-previous.svg" alt="">
+            </button>
+            <button class="arrow arrow_right" onclick="showNext()" id="arrow_right">
+                <img src="images/icon-next.svg" alt="">
+            </button>
+            <div class="thumbs">
+                <img id="gthumb1" onclick="gshowPic1()" src="images/image-product-1-thumbnail.jpg" alt="">
+                <img id="gthumb2" onclick="gshowPic2()" src="images/image-product-2-thumbnail.jpg" alt="">
+                <img id="gthumb3" onclick="gshowPic3()" src="images/image-product-3-thumbnail.jpg" alt="">
+                <img id="gthumb4" onclick="gshowPic4()" src="images/image-product-4-thumbnail.jpg" alt="">
+            </div>
+        </div>
+        </div>
+        <div class="info">
+            <h4>Sneaker compay</h4>
+            <h1>Fall limited edition sneakers</h1>
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+            <div class="prices">
+                <h2 id="price">$125.00</h2>
+                <h3 id="discount">50%</h3>
+            </div>
+            <h3 id="oldprice">$250.00</h3>
+            <div class="btns">
+            <div id="quantity">
+                <button class="decrement_btn" onclick="decrement()">
+                    <img src="./images/icon-minus.svg" alt="minus_icon">
+                </button>
+                <p id="amount_counter">0</p>
+                <button class="increment_button" onclick="increment()">
+                    <img src="./images/icon-plus.svg" alt="plus_icon">
+                </button>
+            </div>
+            <button id="addbtn" onclick="addProduct()"><img src="images/icon-cart.svg" alt="">Add to cart</button>
+            </div>
+        </div>
+    </main>
+    </div>
+    <div class="mobileview">
+        <div class="navigation">
+            <button class="menubtn" onclick="openMenu()"><img src="images/icon-menu.svg" alt=""></button>
+            <img id="mlogo" src="images/logo.svg" alt="">
+            <button id="mcartbtn" onclick="mcartWindow()"><img src="images/icon-cart.svg" alt=""></button>
+            <img id="mavatar" src="images/image-avatar.png" alt="">
+        </div>
+        <div id="mcartwindow">
+            <h3>Cart</h3>
+            <hr>
+            <div id="mcart_product">Your cart is empty</div>
+        </div>
+        <div id="menu_dropdown">
+            <button class="close_btn" id="menu_close" onclick="closeMenu()">
+                <img src="./images/icon-close.svg" alt="close_btn">
+            </button>
+            <div class="menu_list">
+                <a href="#">Collections</a>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div id="menu_opacity"></div>
+        </div>
+        <div class="main">
+            <div class="mobile_gallery">
+                <div class="mobmainpic">
+                    <img id="mgmainpic1" src="images/image-product-1.jpg" alt="">
+                    <img id="mgmainpic2" src="images/image-product-2.jpg" alt="">
+                    <img id="mgmainpic3" src="images/image-product-3.jpg" alt="">
+                    <img id="mgmainpic4" src="images/image-product-4.jpg" alt="">
+                </div>
+                <button class="marrow arrow_left" onclick="showPrev()" id="marrow_left">
+                    <img src="images/icon-previous.svg" alt="">
+                </button>
+                <button class="marrow arrow_right" onclick="showNext()" id="marrow_right">
+                    <img src="images/icon-next.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="mobile_info">
+            <h4>Sneaker compay</h4>
+            <h1>Fall limited edition sneakers</h1>
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll
+                withstand everything the weather can offer.</p>
+            <div class="mprices">
+                <h2 id="mprice">$125.00</h2>
+                <h3 id="mdiscount">50%</h3>
+                <h3 id="moldprice">$250.00</h3>
+            </div>
+            
+            <div class="mbtns">
+                <div id="mquantity">
+                    <button class="mdecrement_btn" onclick="mdecrement()">
+                        <img src="./images/icon-minus.svg" alt="minus_icon">
+                    </button>
+                    <p id="mamount_counter">0</p>
+                    <button class="mincrement_button" onclick="mincrement()">
+                        <img src="./images/icon-plus.svg" alt="plus_icon">
+                    </button>
+                </div>
+                <button id="maddbtn" onclick="addmProduct()"><img src="images/icon-cart.svg" alt="">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
